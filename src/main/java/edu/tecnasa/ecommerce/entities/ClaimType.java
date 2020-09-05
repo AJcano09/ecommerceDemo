@@ -17,9 +17,15 @@ public class ClaimType implements Serializable{
 	
 	@Id	
 	@Column(name="CLA_TYP_NAME",length=150 ,nullable=false)
-	private String  claimType;
+	private String  claimTypeName;
 
-	public String getClaimType() {
-		return claimType;
-	}	
+	public String getClaimTypeName() {
+		return claimTypeName;
+	}
+
+	public void setClaimTypeName(String claimTypeName) {
+		this.claimTypeName = claimTypeName;
+	}
+
+	
 }

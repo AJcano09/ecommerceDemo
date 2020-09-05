@@ -17,41 +17,48 @@ public class Category implements Identifiable ,Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column(name="CAT_ID")
-	private Long id;
+	private Long categoryId;
 	
 	@Column(name="CAT_TITLE" ,length=250 ,nullable =false)
-	private String title;
+	private String category_Title;
 	
 	@Column(name="CAT_DESCRIPTIONS" ,length=250 ,nullable =false)
-	private String descriptions;
+	private String category_Descriptions;
 	
 	
 	public Category() {
 		
 	}
+
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+
+	public String getCategory_Title() {
+		return category_Title;
+	}
+
+
+	public void setCategory_Title(String category_Title) {
+		this.category_Title = category_Title;
+	}
+
+
+	public String getCategory_Descriptions() {
+		return category_Descriptions;
+	}
+
+
+	public void setCategory_Descriptions(String category_Descriptions) {
+		this.category_Descriptions = category_Descriptions;
+	}
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescriptions() {
-		return descriptions;
-	}
-
-	public void setDescriptions(String descriptions) {
-		this.descriptions = descriptions;
-	}	
 	
 }

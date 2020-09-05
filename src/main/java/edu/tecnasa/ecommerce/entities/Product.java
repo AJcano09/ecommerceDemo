@@ -5,13 +5,10 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,19 +21,19 @@ public class Product implements Serializable , Identifiable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="PRO_ID")
-	private Long id;
+	private Long productId;
 	
 	@Column(name="PRO_TITLE",length=50 ,nullable =false)	
-	private String title;
+	private String productTitle;
 	
 	@Column(name="PRO_SPECIAL",nullable =false)
-	private Boolean special;
+	private Boolean productSpecial;
 	
 	@Column(name="PRO_DESCRIPTIONS",length=250,nullable =false)
-	private String descriptions;
+	private String productDescriptions;
 	
 	@Column(name="PRO_PRICE",precision=19 ,scale=2)	
-	private BigDecimal  price;
+	private BigDecimal  productPrice;
 	
 	@ManyToOne
 	@JoinColumn(name="CAT_ID", nullable =false)
@@ -46,46 +43,57 @@ public class Product implements Serializable , Identifiable{
 		
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Boolean getSpecial() {
-		return special;
-	}
-
-	public void setSpecial(Boolean special) {
-		this.special = special;
-	}
-
-	public String getDescriptions() {
-		return descriptions;
-	}
-
-	public void setDescriptions(String descriptions) {
-		this.descriptions = descriptions;
-	}
-
-	public BigDecimal getPrice() {
-		return price;
-	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
 	
+	public Long getProductId() {
+		return productId;
+	}
+
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
+
+
+	public String getProductTitle() {
+		return productTitle;
+	}
+
+
+	public void setProductTitle(String productTitle) {
+		this.productTitle = productTitle;
+	}
+
+
+	public Boolean getProductSpecial() {
+		return productSpecial;
+	}
+
+
+	public void setProductSpecial(Boolean productSpecial) {
+		this.productSpecial = productSpecial;
+	}
+
+
+	public String getProductDescriptions() {
+		return productDescriptions;
+	}
+
+
+	public void setProductDescriptions(String productDescriptions) {
+		this.productDescriptions = productDescriptions;
+	}
+
+
+	public BigDecimal getProductPrice() {
+		return productPrice;
+	}
+
+
+	public void setProductPrice(BigDecimal productPrice) {
+		this.productPrice = productPrice;
+	}
+
+
 	public Category getCategories() {
 		return categories;
 	}

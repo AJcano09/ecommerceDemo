@@ -24,13 +24,13 @@ public class User implements Identifiable,Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="USE_ID")
-	private Long id	;
+	private Long userId	;
 	
 	@Column(name="USE_NAME" ,length=250 ,nullable =false)
 	private String userName;
 	
 	@Column(name="USE_PASSWORD",length=150 , nullable =false)
-	private String passWord;
+	private String userPassword;
 	
 	@ManyToMany(fetch =FetchType.EAGER)
 	@JoinTable(name="E_USER_CLAIM",
@@ -43,17 +43,41 @@ public class User implements Identifiable,Serializable {
 	}
 	
 	
-	public final long getId() {
-		return id;		
+
+	public Long getUserId() {
+		return userId;
 	}
 
-	public String getPassWord() {
-		return passWord;
+
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
+
+
+
+	public String getUserPassword() {
+		return userPassword;
+	}
+
+
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+
 
 	public String getUserName() {
 		return userName;
 	}
+	
 	public Set<ClaimType> getClaims() {
 		return Claims;
 	}
