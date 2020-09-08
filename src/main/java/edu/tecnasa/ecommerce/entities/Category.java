@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name="E_CATEGORY")
 public class Category implements Identifiable ,Serializable{
@@ -17,11 +19,14 @@ public class Category implements Identifiable ,Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column(name="CAT_ID")
+	@JsonProperty("categoryId")
 	private Long categoryId;
 	
+	@JsonProperty("categoryTitle")
 	@Column(name="CAT_TITLE" ,length=250 ,nullable =false)
 	private String category_Title;
 	
+	@JsonProperty("categoryDescription")
 	@Column(name="CAT_DESCRIPTIONS" ,length=250 ,nullable =false)
 	private String category_Descriptions;
 	
@@ -58,6 +63,13 @@ public class Category implements Identifiable ,Serializable{
 
 	public void setCategory_Descriptions(String category_Descriptions) {
 		this.category_Descriptions = category_Descriptions;
+	}
+
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

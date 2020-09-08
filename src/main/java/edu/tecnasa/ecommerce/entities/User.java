@@ -14,6 +14,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 @Entity
 @Table(name="E_USER")
@@ -21,14 +24,17 @@ public class User implements Identifiable,Serializable {
 
 	private static final long serialVersionUID = -2187499196758426166L;
 	
+	@JsonProperty("userId")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="USE_ID")
 	private Long userId	;
 	
+	@JsonProperty("userName")
 	@Column(name="USE_NAME" ,length=250 ,nullable =false)
 	private String userName;
 	
+	@JsonIgnore
 	@Column(name="USE_PASSWORD",length=150 , nullable =false)
 	private String userPassword;
 	
@@ -84,6 +90,14 @@ public class User implements Identifiable,Serializable {
 
 	public void setClaims(Set<ClaimType> claims) {
 		Claims = claims;
+	}
+
+
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

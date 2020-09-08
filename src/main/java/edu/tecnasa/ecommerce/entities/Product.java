@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name="E_PRODUCT")
 public class Product implements Serializable , Identifiable{
@@ -19,19 +21,24 @@ public class Product implements Serializable , Identifiable{
 	private static final long serialVersionUID = -7239833158703595011L;
 
 	@Id
+	@JsonProperty("productId")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="PRO_ID")
 	private Long productId;
 	
+	@JsonProperty("productTitle")
 	@Column(name="PRO_TITLE",length=50 ,nullable =false)	
 	private String productTitle;
 	
+	@JsonProperty("productSpecial")
 	@Column(name="PRO_SPECIAL",nullable =false)
 	private Boolean productSpecial;
 	
+	@JsonProperty("productDescriptions")
 	@Column(name="PRO_DESCRIPTIONS",length=250,nullable =false)
 	private String productDescriptions;
 	
+	@JsonProperty("productPrice")
 	@Column(name="PRO_PRICE",precision=19 ,scale=2)	
 	private BigDecimal  productPrice;
 	
@@ -100,6 +107,13 @@ public class Product implements Serializable , Identifiable{
 
 	public void setCategories(Category categories) {
 		this.categories = categories;
+	}
+
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

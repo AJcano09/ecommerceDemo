@@ -33,9 +33,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter'
 	
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	
+	implementation 'org.springframework.boot:spring-boot-starter-security'	
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	
+	implementation 'net.coobird:thumbnailator:0.4.8'
 	
 	runtimeOnly 'org.postgresql:postgresql'  //driver para postgre
 	//runtimeOnly 'mysql:mysql-connector-java'  //driver mysql
